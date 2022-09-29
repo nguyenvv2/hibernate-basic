@@ -4,15 +4,10 @@
  */
 package service;
 
-import java.util.List;
-import model.SinhVien;
-
 /**
  *
  * @author nguyenvv
  */
 public interface SinhVienService {
-
-    public List<SinhVien> getList();
 
 }

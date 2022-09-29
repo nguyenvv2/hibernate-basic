@@ -4,9 +4,6 @@
  */
 package service.impl;
 
-import java.util.List;
-import model.SinhVien;
-import reopsitory.SinhVienRepository;
 import service.SinhVienService;
 
 /**
@@ -14,12 +11,5 @@ import service.SinhVienService;
  * @author nguyenvv
  */
 public class SinhVienServiceImpl implements SinhVienService {
-
-    private SinhVienRepository sinhVienRepository = new SinhVienRepository();
-
-    @Override
-    public List<SinhVien> getList() {
-        return sinhVienRepository.getListSinhVien();
-    }
 
 }

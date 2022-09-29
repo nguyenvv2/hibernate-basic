@@ -4,16 +4,6 @@
  */
 package view;
 
-import java.util.List;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.table.DefaultTableModel;
-import model.LopHoc;
-import model.SinhVien;
-import service.LopHocService;
-import service.SinhVienService;
-import service.impl.LopHocServiceImpl;
-import service.impl.SinhVienServiceImpl;
-
 /**
  *
  * @author nguyenvv
@@ -23,37 +13,10 @@ public class SinhVienView extends javax.swing.JFrame {
     /**
      * Creates new form SinhVienView
      */
-    private LopHocService lopHocService = new LopHocServiceImpl();
-    private SinhVienService sinhVienService = new SinhVienServiceImpl();
-    private DefaultComboBoxModel comboBoxModel;
-    private DefaultTableModel tableModel;
-
     public SinhVienView() {
 
         initComponents();
-        List<LopHoc> listLh = lopHocService.getList();
-        loadCb(listLh);
-        List<SinhVien> listSinhVien = sinhVienService.getList();
-        loadTable(listSinhVien);
 
-    }
-
-    private void loadTable(List<SinhVien> list) {
-        tableModel = (DefaultTableModel) tbSinhVien.getModel();
-        tableModel.setRowCount(0);
-        for (SinhVien sinhVien : list) {
-            tableModel.addRow(new Object[]{
-                sinhVien.getId(), sinhVien.getTen(),
-                sinhVien.getDiaChi(),
-                sinhVien.getLopHoc().getTenLop()});
-        }
-    }
-
-    private void loadCb(List<LopHoc> list) {
-        comboBoxModel = (DefaultComboBoxModel) cbLop.getModel();
-        for (LopHoc lopHoc : list) {
-            comboBoxModel.addElement(lopHoc);
-        }
     }
 
     /**
@@ -180,8 +143,7 @@ public class SinhVienView extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-       LopHoc lopHoc = (LopHoc) cbLop.getSelectedItem();
-        System.out.println(lopHoc.getMaLop());
+
     }//GEN-LAST:event_btnThemActionPerformed
 
     /**

@@ -4,17 +4,10 @@
  */
 package service;
 
-import java.util.List;
-import model.LopHoc;
-
 /**
  *
  * @author nguyenvv
  */
 public interface LopHocService {
 
-    List<LopHoc> getList();
-
-    
-    
 }
