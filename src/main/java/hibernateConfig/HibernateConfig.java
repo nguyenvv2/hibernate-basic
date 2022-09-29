@@ -37,5 +37,9 @@ public class HibernateConfig {
     public static SessionFactory getFACTORY() {
         return FACTORY;
     }
+    
+    public static void main(String[] args) {
+        getFACTORY();
+    }
 
 }

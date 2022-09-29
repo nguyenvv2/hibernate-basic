@@ -67,7 +67,7 @@ public class LopHoc {
 
     @Override
     public String toString() {
-        return "LopHoc{" + "maLop=" + maLop + ", tenLop=" + tenLop + '}';
+        return maLop + "-" + tenLop;
     }
 
 }

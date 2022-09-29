@@ -6,7 +6,6 @@ package service.impl;
 
 import java.util.List;
 import model.SinhVien;
-import model.SinhVienCustom;
 import reopsitory.SinhVienRepository;
 import service.SinhVienService;
 
@@ -22,17 +21,5 @@ public class SinhVienServiceImpl implements SinhVienService {
     public List<SinhVien> getList() {
         return sinhVienRepository.getListSinhVien();
     }
-
-    @Override
-    public Boolean addNew(SinhVien sinhVien) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<SinhVienCustom> listSinhVienCustom() {
-        return sinhVienRepository.getListSinhVienCustom();
-    }
-
-    
 
 }

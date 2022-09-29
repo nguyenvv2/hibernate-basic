@@ -7,7 +7,6 @@ package reopsitory;
 import hibernateConfig.HibernateConfig;
 import java.util.List;
 import model.SinhVien;
-import model.SinhVienCustom;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -23,25 +22,6 @@ public class SinhVienRepository {
         Query q = session.createQuery("From SinhVien");// truy vấn trên entity(HQL)
         List<SinhVien> list = q.getResultList();
         return list;
-    }
-
-    public List<SinhVienCustom> getListSinhVienCustom() {
-        Query<SinhVienCustom> query = session.createQuery(
-                "select new model.SinhVienCustom(s.ten , s.diaChi) "
-                + " from SinhVien s");
-        List<SinhVienCustom> list = query.list();
-        return list;
-
-    }
-
-    public static void main(String[] args) {
-        SinhVienRepository sinhVienRepository = new SinhVienRepository();
-        List<SinhVien> list = sinhVienRepository.getListSinhVien();
-        for (SinhVien sinhVien : list) {
-            System.out.println("Ten sv :" + sinhVien.getTen() + " - " + sinhVien.getLopHoc().getTenLop());
-
-        }
-        
     }
 
 }
