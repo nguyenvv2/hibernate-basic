@@ -1,4 +1,5 @@
-use hibernateDemo
+create database QLSV
+use QLSV
 create table lophoc
 (
     ma_lop INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
