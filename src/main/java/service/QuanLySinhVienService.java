@@ -4,10 +4,19 @@
  */
 package service;
 
+import java.util.ArrayList;
+import model.LopHoc;
+import model.SinhVien;
+
 /**
  *
  * @author nguyenvv
  */
-public interface SinhVienService {
-
+public interface QuanLySinhVienService {
+    
+    ArrayList<SinhVien> getListSinhVien();
+    
+    ArrayList<LopHoc> getListLopHoc();
+    
+    String addSinhVien(SinhVien sinhVien);
 }

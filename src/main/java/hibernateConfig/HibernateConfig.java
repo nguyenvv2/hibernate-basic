@@ -25,8 +25,8 @@ public class HibernateConfig {
 //        properties.put(Environment.SHOW_SQL, "true");
 
         conf.setProperties(properties);
-        conf.addAnnotatedClass(SinhVien.class);
         conf.addAnnotatedClass(LopHoc.class);
+        conf.addAnnotatedClass(SinhVien.class);
 
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(conf.getProperties()).build();

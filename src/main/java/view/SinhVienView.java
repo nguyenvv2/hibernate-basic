@@ -4,6 +4,15 @@
  */
 package view;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.LopHoc;
+import model.SinhVien;
+import service.QuanLySinhVienService;
+import service.impl.QuanLySinhVienImpl;
+
 /**
  *
  * @author nguyenvv
@@ -13,10 +22,16 @@ public class SinhVienView extends javax.swing.JFrame {
     /**
      * Creates new form SinhVienView
      */
+    private QuanLySinhVienService quanLySinhVienService = new QuanLySinhVienImpl();
+    private DefaultTableModel defaultTableModel;
+    private DefaultComboBoxModel defaultComboBoxModel;
+    
     public SinhVienView() {
-
+        
         initComponents();
-
+        loadComboBox(quanLySinhVienService.getListLopHoc());
+        loadTable(quanLySinhVienService.getListSinhVien());
+        
     }
 
     /**
@@ -141,9 +156,38 @@ public class SinhVienView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loadComboBox(ArrayList<LopHoc> list) {
+        defaultComboBoxModel = (DefaultComboBoxModel) cbLop.getModel();
+        for (LopHoc lopHoc : list) {
+            defaultComboBoxModel.addElement(lopHoc);
+            
+        }
+        
+    }
+    
+    private void loadTable(ArrayList<SinhVien> list) {
+        defaultTableModel = (DefaultTableModel) tbSinhVien.getModel();
+        defaultTableModel.setRowCount(0);
+        for (SinhVien sinhVien : list) {
+            defaultTableModel.addRow(new Object[]{
+                sinhVien.getMaSinhVien(), sinhVien.getTenSinhVien(),
+                sinhVien.getDiaChi(), sinhVien.getLopHoc().getTenLop()
+            });
+        }
+        
+    }
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-
+        SinhVien sv = new SinhVien();
+        String tenSv = txtTen.getText();
+        String diaChi = txtDiaChi.getText();
+        LopHoc lopHoc = (LopHoc) cbLop.getSelectedItem();
+        sv.setDiaChi(diaChi);
+        sv.setTenSinhVien(tenSv);
+        sv.setLopHoc(lopHoc);
+        String result = quanLySinhVienService.addSinhVien(sv);
+        JOptionPane.showMessageDialog(this, result);
+        loadTable(quanLySinhVienService.getListSinhVien());
     }//GEN-LAST:event_btnThemActionPerformed
 
     /**
